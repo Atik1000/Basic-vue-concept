@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <h1>{{ greet }} {{ message }}</h1>
+    <h1>{{greet}}  {{ message }}</h1>
+
+    <div v-text="channel"></div>
+    <div v-text="message"></div>
   </div>
 </template>
 
@@ -10,6 +13,7 @@ export default {
     return {
       greet: "Hello",
       message: "Welcome to Vue.js",
+      channel: "Vue.js",
     };
   },
 };
