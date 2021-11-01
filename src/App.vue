@@ -1,53 +1,25 @@
 <template>
-  <div id="app">
-    <!-- mastached -->
-    <h1>{{ greet }} {{ message }}</h1>
-    <!-- v-text -->
-    <div v-text="channel"></div>
-    <div v-html="message"></div>
-    <!-- binding attribute -->
-    <h2 v-bind:id="headingId">Heading</h2>
-    <button v-bind:disabled="isDisabled" v-bind:class="status">Submit</button>
-    <h2 class="uderline">Underline text</h2>
-    <h2 v-bind:class="isPromoted && 'promoted'">Promoted</h2>
-    <h1 v-bind:class="isSoldOut ? 'sold-out' : 'new'">Movie</h1>
-    <h1
-      v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : 'new']"
-    >
-      Array condition checker
-    </h1>
-    <!-- object condition movie -->
-    <h1 v-bind:class="{ promoted: isPromoted, 'sold-out': isSoldOut,new:!soldOut }">Object condition checker</h1>
-  <!-- Style bind -->
-  <h2 v-bind:style="{color:highlightColor,'font-size':headersSize,padding:'20px'}">Inline style</h2>
-<h2 v-bind:style="headersSizeObject
-">Style object</h2>
-<div>
-<h1 v-bind:style="[baseStyleObject,successStyleObject]">Success Style</h1>
+  <div class="">
+    <h2 v-if="num===0">The number is zero</h2>
+    <h2 v-else-if="num===1">The number is one</h2>
+    <h2 v-else>The number is not zero or one</h2>
+<div v-if="display">
+    <button @click="num=0">Zero</button>
+    <button @click="num=1">One</button>
+    <button @click="num=2">Two</button>
 </div>
-  </div>
-
+<h1 v-show="showElement
+">Show V element</h1>
+</div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      greet: "Hello",
-      message: "<b>Welcome to Vue.js</b>",
-      channel: "Vue.js",
-      headingId: "heading",
-      isDisabled: false,
-      status: "danger",
-      isPromoted: true,
-      isSoldOut: true,
-      highlightColor: "orange",
-      headersSize:"50px",
-      headersSizeObject:{ color:"red", fontSize:"20px", padding:"10px" },
-      baseStyleObject:{ color:"blue", fontSize:"20px", padding:"10px" },
-      successStyleObject:{ backgroundColor:"lightgreen", border:'1px solid green', }
-
-     
+     num: 10,
+     display:false,
+     showElement:true,
 };
 }
 }
@@ -62,16 +34,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.uderline {
-  text-decoration: underline;
-}
-.promoted {
-  text-transform: uppercase;
-}
-.new {
-  color: red;
-}
-.sold-out {
-  color: green;
-}
+
 </style>
