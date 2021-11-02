@@ -1,30 +1,26 @@
 <template>
   <div id="app">
-    <div v-for="name in names" :key="name">
-      <h2 v-if="name ==='Bruce' ">
-        <span>{{ name }}</span>
-      </h2>
-
-    </div>
-  
-    <button @click="shuffle">Shuffle</button>
+    <h2>{{add(10,20,30,40)}}</h2>
+    <h1>multiply {{multiply(baseValue)}}</h1>
   </div>
 </template>
 
 <script>
-import _ from "lodash";
 export default {
   name: "App",
   data() {
     return {
-      names: ["Bruce", "Clark", "Diana", "Barry"],
+      baseMultiplier: 5,
+      baseValue: 10,
     };
   },
   methods: {
-    shuffle() {
-      console.log(this.names);
-      this.names = _.shuffle(this.names);
+    add(a,b,c) {
+      return a+=b+=c;
     },
+    multiply(num){
+      return num * this.baseMultiplier;
+    }
   },
 };
 </script>
