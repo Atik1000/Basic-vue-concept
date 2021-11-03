@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <h2>{{add(10,20,30,40)}}</h2>
-    <h1>multiply {{multiply(baseValue)}}</h1>
+    <h1>{{name}}</h1>
+    <button v-on:click="name= 'Batman'">Change name</button>
+    <h1>{{count}}</h1>
+    <button v-on:click="count +=1">increment</button>
+    <!-- reset btn -->
+    <button v-on:click="count = 0">reset</button>
+    <button v-on:click="decrement(5)">decrement5</button>
+<button v-on:click="decrement(1)">decrement1</button>
+
   </div>
 </template>
 
@@ -10,17 +17,15 @@ export default {
   name: "App",
   data() {
     return {
-      baseMultiplier: 5,
-      baseValue: 10,
+      name: "Vue.js",
+      count: 0
     };
   },
   methods: {
-    add(a,b,c) {
-      return a+=b+=c;
+    decrement(num) {
+      this.count-=num;
     },
-    multiply(num){
-      return num * this.baseMultiplier;
-    }
+    
   },
 };
 </script>
