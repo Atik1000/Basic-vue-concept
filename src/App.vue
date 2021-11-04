@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <div>
       <pre>
     {{ JSON.stringify(formValues, null, 2) }}
@@ -10,7 +10,7 @@
     </div>
     <div>
       <label for="name">Name</label>
-      <input id="name" v-model="formValues.name" />
+      <input id="name" v-model.trim="formValues.name" />
     </div>
     <br />
     <div>
@@ -45,6 +45,8 @@
       <input type="checkbox" v-model="formValues.jobtype" true-value="yes" false-value="no" />
     </div>
     <br />
+    <!-- submit btn -->
+    <button type="submit">Submit</button>
   </form>
 </template>
 
@@ -63,7 +65,10 @@ export default {
     };
   },
   methods: {
-
+    submitForm() {
+      console.log("Form submitted!");
+      console.log(this.formValues);
+    }
 
   },
 };
